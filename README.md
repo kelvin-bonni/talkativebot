@@ -1,4 +1,4 @@
-# TalkativeBot for Python
+# TalkativeBot
 
 A Python conversation-state engine inspired by the Java project [kelvin-bonni/talkativebot](https://github.com/kelvin-bonni/talkativebot). It routes incoming messages, starts or resumes conversations, asks text or single-choice questions, and stores pending interactions so a conversation can continue when a reply arrives.
 
@@ -44,7 +44,3 @@ Configure a `ConversationStartResolver` to associate an incoming message with a 
 `TalkativeBot.handle(IncomingMessage(...))` resumes a matching pending interaction before trying to start a conversation by default. `ConversationRouteMode` can change this behavior to resume-only, start-only, or reject. Start resolvers are ordered by their `order` attribute; unscoped resolvers apply only to the default scope.
 
 The bot saves a pending question before sending it. Invalid choice input raises `ValueError` and leaves the pending interaction intact. The in-memory store is the default; use `SQLitePendingInteractionStore` for local durable storage or `RedisPendingInteractionStore(client)` with a compatible client for Redis. Both scoped keys and optional TTLs are supported by the built-in stores.
-
-## Scope and limitations
-
-This is a port of the framework-independent conversation concepts, not a feature-complete Python equivalent of every original Java module. Spring Boot auto-configuration, JPA persistence, Spring Cloud Stream integration, REST/third-party chat adapters, and multiple-choice/custom question types are not included. SQLite and Redis are standalone Python implementations and do not share data formats with the Java stores. Add adapters by implementing the storage or channel interfaces used by the package.

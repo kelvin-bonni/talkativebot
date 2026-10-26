@@ -1,6 +1,6 @@
 # TalkativeBot
 
-A Python conversation-state engine inspired by the Java project [kelvin-bonni/talkativebot](https://github.com/kelvin-bonni/talkativebot). It routes incoming messages, starts or resumes conversations, asks text or single-choice questions, and stores pending interactions so a conversation can continue when a reply arrives.
+A Python conversation-state engine. It routes incoming messages, starts or resumes conversations, asks text or single-choice questions, and stores pending interactions so a conversation can continue when a reply arrives.
 
 TalkativeBot is not a workflow/BPMN engine, chatbot platform, or AI framework. Conversation logic is kept separate from transport and can be connected to your own channels and services.
 
